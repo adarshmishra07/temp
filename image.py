@@ -14,7 +14,7 @@ import urllib.request
 import warnings
 warnings.filterwarnings("ignore")
 
-myjsonfile = open('thisit.json', 'r',encoding="utf8")
+myjsonfile = open('/saltoosiconfig/thisit.json', 'r',encoding="utf8")
 jsondata = myjsonfile.read()
 
 obj=json.loads(jsondata)
@@ -134,7 +134,7 @@ def scrapeLinks():
 
     #print(dict) 
 
-    out_file = open("imagelinks.json", "w") 
+    out_file = open("/saltoosiconfig/imagelinks.json", "w") 
     json.dump(appenddict, out_file, indent = 6) 
 
     out_file.close() 
@@ -149,7 +149,7 @@ def scrapeLinks():
 scrapeLinks()
 
 def push():
-    with open('imagelinks.json') as f:
+    with open('/saltoosiconfig/imagelinks.json') as f:
         file_data = json.load(f)
         
     if Collection.count() == 0:
