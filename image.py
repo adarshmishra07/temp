@@ -123,8 +123,8 @@ def scrapeLinks():
                     appenddict = Merge(appenddict,dict)
                     
         except:
-            #print("Something went wrong")
-            pass
+            print("Something went wrong")
+            
 
 
 
@@ -134,11 +134,13 @@ def scrapeLinks():
     json.dump(appenddict, out_file, indent = 6) 
 
     out_file.close() 
+    print(appenddict)
+    
     print("We are done ")
 
     #print(mydict)
     #print(appenddict)
-    return(appenddict)
+#     return(appenddict)
 
 scrapeLinks()
 
