@@ -104,7 +104,7 @@ def scrapeLinks():
             soup = BeautifulSoup(res.text,"lxml")
             key = ids[j]
             dict.setdefault(key,[]).append(specialimage)
-            print("Append Update pt 1")
+            #print("Append Update pt 1")
             appenddict = Merge(appenddict,dict)
             for items in soup.select(".thumb"):
                 image = items['style'].split("url(")[1].split(")")[0]
@@ -122,7 +122,7 @@ def scrapeLinks():
                     
                     dict.setdefault(key,[]).append(x)
                     appenddict = Merge(appenddict,dict)
-                    print("Append Update pt 2")
+                    #print("Append Update pt 2")
                     
         except Exception as e:
             print(e)
@@ -138,13 +138,13 @@ def scrapeLinks():
     json.dump(appenddict, out_file, indent = 6) 
 
     out_file.close() 
-    print(appenddict)
+    #print(appenddict)
     
     print("We are done ")
 
     #print(mydict)
     #print(appenddict)
-#     return(appenddict)
+    return(appenddict)
 
 scrapeLinks()
 
@@ -154,10 +154,10 @@ def push():
         
     if Collection.count() == 0:
         if isinstance(file_data, list):
-            Collection.insert_many(file_data)  
+            Collection.inset_one(file_data)  
         else:
             Collection.insert_one(file_data)
     else:
         Collection.delete_many({})
-        Collection.insert_many(file_data)
+        Collection.insert_one(file_data)
 push()
