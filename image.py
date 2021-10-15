@@ -104,6 +104,7 @@ def scrapeLinks():
             soup = BeautifulSoup(res.text,"lxml")
             key = ids[j]
             dict.setdefault(key,[]).append(specialimage)
+            print("Append Update pt 1")
             appenddict = Merge(appenddict,dict)
             for items in soup.select(".thumb"):
                 image = items['style'].split("url(")[1].split(")")[0]
@@ -121,6 +122,7 @@ def scrapeLinks():
                     
                     dict.setdefault(key,[]).append(x)
                     appenddict = Merge(appenddict,dict)
+                    print("Append Update pt 2")
                     
         except:
             print("Something went wrong")
