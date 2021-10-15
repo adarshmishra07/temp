@@ -124,8 +124,10 @@ def scrapeLinks():
                     appenddict = Merge(appenddict,dict)
                     print("Append Update pt 2")
                     
-        except:
-            print("Something went wrong")
+        except Exception as e:
+            print(e)
+
+            
             
 
 
